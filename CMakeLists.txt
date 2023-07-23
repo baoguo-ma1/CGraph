@@ -60,3 +60,5 @@ foreach(tut ${CGRAPH_TUTORIAL_LIST})
             tutorial/${tut}.cpp
             )
 endforeach()
+
+add_subdirectory(./test/)

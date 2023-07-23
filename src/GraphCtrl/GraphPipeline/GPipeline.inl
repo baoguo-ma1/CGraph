@@ -119,12 +119,12 @@ GGroupPtr GPipeline::createGGroup(const GElementPtrArr &elements,
     // 如果不是所有的都非空，则创建失败
     if (std::any_of(elements.begin(), elements.end(),
                     [](GElementPtr element) { return (nullptr == element); })) {
-        return nullptr;
+        CGRAPH_THROW_EXCEPTION("createGGroup input have nullptr")
     }
 
     if (std::any_of(dependElements.begin(), dependElements.end(),
                     [](GElementPtr element) { return (nullptr == element); })) {
-        return nullptr;
+        CGRAPH_THROW_EXCEPTION("createGGroup depends have nullptr")
     }
 
     GGroupPtr group = CGRAPH_SAFE_MALLOC_COBJECT(T)
